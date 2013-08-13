@@ -4,13 +4,21 @@ This library allows you to generate you a sudo command with all the correct esca
 
 # Usage
 ## Simple usage
-    var sudofy = require('sudofy');
-    sudofy.command('who am i');
+    > var sudofy = require('sudofy');
+    > sudofy.command('who am i');
+    'sudo \'who am i\''
 
-## Specify options
-    var sudofy = require('sudofy');
-    var options= { group: 'wheel', user: 'root', interactive: false };
-    sudofy.command('who am i', options);
+## With more options
+    > var sudofy = require('sudofy');
+    > var options= { group: 'wheel', user: 'root', interactive: false };
+    > sudofy.command('who am i', options);
+    'sudo -g wheel -n \'who am i\''
+
+## Run a sudo command as root
+    > var sudofy = require('sudofy');
+    > var options= { root: true };
+    > sudofy.command('who am i', options);
+    'who ami i'
 
 # Available options
 
